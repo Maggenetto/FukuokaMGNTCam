@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="jp">
+    <link rel="icon" href="./image/iconn.ico">
+    <title>FukuokaMGNTCam -プログラミング-</title>
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="./image/iconn.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/htmlStyle.css">
+    <link rel="stylesheet" href="./css/HeaderStyle.css">
+    <script src="./java/loadcommon.js"></script>
+    <meta name="author" content="FukuokaMGNTCam">
+    <meta name="description" content="FukuokaMGNTCamのホームページです。色んなことを書いています。">
+    <meta name="keywords" content="FukuokaMGNTCam,QuakeInfoText,地震,地震観測,地震ソフト">
+    <meta property="og:title" content="FukuokaMGNTCam - Home">
+<meta property="og:site_name" content="FukuokaMGNTCamHP">
+<meta property="og:url" content="https://maggenetto.github.io/FukuokaMGNTCam/index.html">
+<meta property="og:description" content="FukuokaMGNTCamのホームページです。色んなことを書いています。">
+<meta property="og:type" content="website">
+<meta property="og:image" content="./image/iconn.ico">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@FukuokkaMGNTnr">
+<meta name="twitter:creator" content="@FukuokkaMGNTnr">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@300;400;500&display=swap" rel="stylesheet"></head>
+    </head>
+<body>
+    <div id="header"></div>
+    <div id="content">
+        <section id="hero">
+            <h1>MGNTのプログラミング記事</h1>
+            <p>この記事ではMGNTがアプリ制作をするまでの経緯やQITについて書かせて<br>いただきます。</p>
+            <h2><br>自己紹介</h2>
+            <p>FukuokaMGNTCamです。福岡県で地震観測をしています。是非見に来てください。</p>
+            <h2><br>制作に興味を持ったきっかけ</h2>
+            <p>本格的にアプリ制作をしようと思い始めたのは2022年の7月中旬頃です。それまは有志が制作してくれたアプリを愛用していました。</p>
+            <p>きっかけを持ったのは<a href="https://svs.ingen084.net/kyoshineewviewer/">KyoshinEEWViewer for ingen</a>というアプリケーションの観測ﾗﾝｷﾝｸﾞ機能でした。ほかにも<a href="http://www.melanion.info/eqwatch/">Eqwatch</a>等にも実装されていますが、数十件を一度に見ることができるのはスゴイと思いました。ほかにも理由はありましたが、恐らくこれが一番の理由だと思います。</p>
+            <p>でも自分はまだプログラミングのプの字も知らないほど無知でした。この機能がなければただ有志制作のソフトウェアを使用して配信するだけの人だったかもしれません。</p>
+            <h2><br>ﾌﾟﾛｸﾞﾗﾐﾝｸﾞに興味を持ったきっかけ</h2>
+            <p>プログラミング自体に興味を持ったのは別の理由で、まずMGNTは英語がまったくできません。でも英語は学びたいけど勉強は嫌だという理由だったかもしれません。</p>
+            <h2><br>最初のソフト</h2>
+            <img src="/image/PM.png" alt="PointMonitor" width="350">
+            <p>初めて作ったソフト、PointMonitorは<a href="https://lifelinesapp.amebaownd.com/posts/11973673/">画像からリアルタイム震度を出す -生命線様-</a>のコードを参考にしながら制作しました。</p>
+            <p>当時はKyoshinLibの使い方がわからなかったのでこの方法で取得して出来て喜んでました。</p>
+            <img src="./image/PMsett.png" alt="PMの設定" width="600">
+            <p>何故ゆえにデザインがひどい。(当時美術部)結局デザインがひどいまま開発は終了してしまいました。</p>
+            <h2><br>EEW系地震情報</h2>
+            <h2><br>EEW系地震情報2</h2>
+            <h2><br>テロップソフト</h2>
+            <h2><br>PiDAS</h2>
+            <p>8月の終わり、夏休みの課題として自由研究をすべくPiDAS(5000円で)の購入。<br>ですがまさかの半田付けが必要だということが判明。もちろん私は半田付けなんてしたこともないし、調べてみたときこれは絶対買うべきではなかったと後悔していました。<br>ですが3か月後、学校の授業で半田付けをする機会が出来そのタイミングで半田付けを極めました。<br>11月くらい、半田付けが終わり、ソフトウェアをラズパイにぶち込んでみます。<br>あれ？これPythonじゃん。私触ったことないんだけど...<br>MGNT君は困ってしまいます。こうなったら<a href="https://k-s.booth.pm/items/3054511">電子書籍</a>を買うしかないと買います。<br>というかingen様が公開されている<a href="https://github.com/ingen084/PiDASPlus/releases/tag/2.0.0">PiDASPlus</a>入れればいいだけだったのに、600円払ったというわけです。<br>でも社会貢献的なのになったからいいのかな...?</p>
+            <h2><br>QuakeInfoText</h2>
+            <p>当初マップに興味はあっても難しいため文字だけの情報ソフトを作ろうと考えていました。<br>その3か月後、やはりマップを用いて表示しないと伝わりずらいと配信にテスト使用してみて気づきました。</p>
+            <h2><br>QuakeInfoText-Mapを考える-</h2>
+            <p>最初は画像を用いて表示しようと考えました。</p>
+            <p>ですが描画に時間が掛かるという致命的な問題に直面します。</p>
+            <p>そこでMGNTはこう考えます。「GeoJson使って描画したほうがいいよな...」と。<br>もちろん描画経験もない私。<a href="https://qiita.com/Conripi/items/fe1b91c31015ed492cfa">C# WinFormsで地図描画</a>という記事を繰り返し見てもまったくわかりませんでした。(僕の理解力が乏しいだけで記事は全く悪くありません。)<br>そのためにまずデザイン(UI)を固めて行こうということになります。</p>
+            <h2><br>QuakeInfoText-UIを固めていく-</h2>
+            <p>2023/05/02、大幅なUIを変更してみました。省スペースかつ見やすくなるよう調整しました。津波情報も大々的に表示させるようにし、一目で分かるような配置にしました。また、津波予報以上の情報が発表された際には文字色を薄黄色になるようにしました。</p>
+            <img src="./image/2023-05-02.png" alt="PMの設定" width="800">
+            <h2><br>QuakeInfoText-自動移動-</h2>
+            <p>2023/05/27、マップの自動移動に成功しました。当時はまだズームの機能は実装していないので、手動ズームですが...</p>
+            <p>震度1以上の地域に枠を囲ませ、その中心の緯度経度を求めることで出来ました。</p>
+            <img src="./image/2023-05-27.png" alt="PMの設定" width="800">
+            <h2><br>強震モニタの開発</h2>
+            <p>06/04、描画方法を理解して、いよいよ開発に着手しました。<br>もちろん分かったからと言って直ぐに描画出来たというわけではありません。<br>観測点ファイルから名前を抜き出して、KyoshinMonitorLibを使用して<br>緯度経度・震度・RGBを取得することで実現に至りました。<br>そこからforeach文で繰り返し情報を読み込み、かつ同時に描画まで<br>行うことで画像の通りになりました。(動作困難を予想し九州のみの描画)</p>
+            <img src="./image/Kimoni1.png" alt="PMの設定" width="660">
+            <h2><br>市区町村ごとの描画</h2>
+            <p>06/22、使用しているAPI付属の観測点情報をまとめたファイルを見つけ、<br>強モニ観測点を描画した感じで取得し、黒点のみで描画してみました。(画像無し)<br>さらに震度を追加し、重なり方(震度が大きいほど手前に表示)を無視していますが<br>描画に成功しました。</p>
+            <img src="./image/QTI4.png" alt="PMの設定" width="900">
+            <p>さらにそこから6時間を犠牲にしたことで、<br>ソート(順番)して描画することに成功しました。<br>(隠れていた震度5弱が一番手前に表示)</p>
+            <img src="./image/QTI5.png" alt="PMの設定" width="900">
+            
+            <h2><br>最大震度地域の表示</h2>
+            <p>区分名ならまだしも、市区町村となると分かりずらいとなりそうなので、描画しました。<br>またマップ上にも最大震度の地域を描画しました。(強モニ描画で知識取得済)<br>(※テキストとマップの情報は違うものです。)</p>
+            <img src="./image/QTI7.png" alt="PMの設定" width="460">
+            <img src="./image/QTI6.png" alt="PMの設定" width="216">
+            <h2><br>当サイトは現在制作中です。気分次第で書きます。</h2>
+        </section>
+        <div id="footer"></div>
+</body>
+</html>
