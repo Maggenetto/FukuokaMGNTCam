@@ -6,10 +6,40 @@ body {
   }
 
   h1 {
-    font-size: 30px;
+    font-size: 35px;
+    font-weight:550;
+    margin-left: 10px;
 }
     h2 {
         font-weight:lighter;
+        font-size: 23px;
+        font-weight:550;
+        border-bottom: 1px solid white; 
+        padding-bottom: 10px;
+        margin-left: 10px; margin-right: 50px;
+}
+h3 {
+  font-weight:lighter;
+  font-size: 20px;
+  font-weight:500;
+  border-bottom: 1px solid white; 
+  padding-bottom: 10px;
+  margin-left: 20px; margin-right: 120px;
+}
+h4 {
+    font-weight:lighter;
+    text-align-last: center;
+}
+
+main p {
+  font-size: 17px;
+  font-weight:lighter;
+  margin-left: 20px;
+}
+main h1, main h2, main p {
+  max-width: 700px;
+  margin-left: 20px;
+  word-wrap: break-word;
 }
   a{
     color: rgb(92, 209, 255);
@@ -21,16 +51,28 @@ body {
     border-radius: 20px;
 }
 
-.profile{
+.profile {
   margin: 50px;
   background-color: #2c2c2c;
-  height: 230px;;
+  height: auto;
   box-shadow: 0px 0px 20px #141414;
   border-radius: 20px;
+  overflow: hidden;
 }
-.profile img{ 
-  margin-right: 30px;float: right; margin-top: -20px;}
-.profile p{padding-left: 20px; margin-top: -20px; padding-right: 250px;}
+
+.profile img {
+  max-width: 100%;
+  height: auto;
+  float: right;
+  margin-top: -20px;
+}
+
+.profile p {
+  padding-left: 20px;
+  margin-top: -20px;
+  padding-right: 20px;
+  word-wrap: break-word;
+}
 
 
 .Youtube{
@@ -71,14 +113,136 @@ body {
 
 
 footer {
-  background-color: #333; /* 背景色 */
+  background-color: #333;
   height: 70px;
   padding-top: 10px;
-  color: #fff; /* 文字色 */
+  color: #fff;
 }
 
-/* フッター内のテキストリンクに対するスタイル */
 footer a {
-  color: #7cf6ff; /* リンクの文字色 */
-  text-decoration: none; /* リンクの下線を削除 */
+  color: #7cf6ff;
+  text-decoration: none;
+}
+
+
+.table {
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+  border-spacing: 0;
+ }
+ .table th {
+  padding: 10px;
+  background: #4b5a69;
+  border: solid 1px #666666;
+  color: #ffffff;
+  font-size: 21px;
+  font-weight:400;
+ }
+ .table td {
+  padding: 10px;
+  border: solid 1px #666666;
+  font-size: 16px;
+  font-weight:400;
+ }
+ .table td:first-child {
+  background: #474747;
+ }
+
+ .sns-tag-cloud {
+  margin: 30px 0 10px 0;
+}
+
+/* SNSシェアボタン */
+.sns-tag-cloud {
+  padding-inline-start: 0px;
+font-size: 12px;
+font-weight: bold;
+}
+
+.sns-tag-cloud-under {
+  padding-inline-start: 0px;
+font-size: 12px;
+font-weight: bold;
+text-align:center;
+}
+
+a.sns-tag-cloud-hatenab {
+ display: inline-block;
+padding: 10px;
+margin:3px;
+ line-height: 1;
+ text-decoration: none;
+color: #00A4DE;
+border: 1.5px solid;
+border-color: #00A4DE;
+border-radius: 3px;
+}
+a.sns-tag-cloud-hatenab:hover {
+background: #00A4DE; 
+color: #fff; 
+}
+
+a.sns-tag-cloud-facebook {
+ display: inline-block;
+padding: 10px;
+margin:3px;
+ line-height: 1;
+ text-decoration: none;
+ color: #4064AC;
+border: 1.5px solid;
+border-color: #4064AC;
+border-radius: 3px;
+}
+a.sns-tag-cloud-facebook:hover {
+background: #4064AC; 
+color: #fff; 
+}
+
+a.sns-tag-cloud-twitter {
+ display: inline-block;
+padding: 10px;
+margin:3px;
+ line-height: 1;
+ text-decoration: none;
+ color: #1DA1F2;
+border: 1.5px solid;
+border-color: #1DA1F2;
+border-radius: 3px;
+}
+a.sns-tag-cloud-twitter:hover {
+background: #1DA1F2; 
+color: #fff; 
+}
+
+a.sns-tag-cloud-pocket {
+ display: inline-block;
+padding: 10px;
+margin:3px;
+ line-height: 1;
+ text-decoration: none;
+ color: #EF4056;
+border: 1.5px solid;
+border-color: #EF4056;
+border-radius: 3px;
+}
+a.sns-tag-cloud-pocket:hover {
+background: #EF4056; 
+color: #fff; 
+}
+
+a.sns-tag-cloud-line {
+ display: inline-block;
+padding: 10px;
+margin:3px;
+ line-height: 1;
+ text-decoration: none;
+ color: #21BA4E;
+border: 1.5px solid;
+border-color: #21BA4E;
+border-radius: 3px;
+}
+a.sns-tag-cloud-line:hover {
+background: #21BA4E; 
+color: #fff; 
 }

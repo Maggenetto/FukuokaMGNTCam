@@ -1,2 +1,3 @@
 # FukuokaMGNTCam ホームページ
-## FukuokaMGNT( https://twitter.com/FukuokkaMGNTnr )
+## 制作
+- Fuku1213 ( https://twitter.com/fuku121303 )

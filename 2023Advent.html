@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="./image/iconn.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/HeaderStyle.css">
+    <link rel="stylesheet" href="./css/htmlStyle.css">
+    <title>FukuokaMGNTCam - 緊急地震速報を複数対応したはなし -</title>
+    <script src="./java/style.js"></script>
+    <script src="./java/loadcommon.js"></script>
+    <meta name="author" content="FukuokaMGNTCam">
+    <meta name="description" content="FukuokaMGNTCamのホームページです。色んなことを書いています。">
+    <meta name="keywords" content="FukuokaMGNTCam,QuakeInfoText,地震,地震観測,地震ソフト">
+    <meta property="og:title" content="FukuokaMGNTCam - Home">
+<meta property="og:site_name" content="FukuokaMGNTCamHP">
+<meta property="og:url" content="https://maggenetto.github.io/FukuokaMGNTCam/index.html">
+<meta property="og:description" content="FukuokaMGNTCamのホームページです。色んなことを書いています。">
+<meta property="og:type" content="website">
+<meta property="og:image" content="./image/iconn.ico">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@FukuokkaMGNTnr">
+<meta name="twitter:creator" content="@FukuokkaMGNTnr">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@300;400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.js"></script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/dracula.min.css">
+    <script>
+      mermaid.initialize({
+          startOnLoad: true, 
+          theme: 'dark',
+      });
+    </script>
+    </head>
+    <body>
+        <div id="header"></div>
+        <main>
+            <div class="qiita-style">
+                <div id="content">
+                <section id="hero"> 
+                    <style>
+                        body {
+                display: flex;
+                            align-items: center;
+                            flex-direction: column;
+                            justify-content: center;
+                            height: auto;
+                            text-align-last: left;
+                        }
+                        #header,#footer {
+                            width: 100%;
+                        }
+                
+                        .qiita-style {
+                            background-color: #2c2c2c;
+                            box-shadow: 0px 0px 20px #141414;
+                            border-radius: 20px;
+                            overflow: hidden;
+                            padding: 20px;
+                            margin-top: 50px; margin-bottom: 50px;
+                        }
+                        img {
+                            max-width: 90%;
+                            height: auto;
+                            border-radius: 20px;
+                            margin-left: 20px;
+                        }
+                        pre {
+                            overflow-x: auto;
+                            -webkit-overflow-scrolling: touch;
+                            word-wrap: break-word;
+                        }
+                        code {
+                            font-family: Consolas, Menlo, Monaco, -apple-system, BlinkMacSystemFont, "Segoe UI", Meiryo, monospace;
+                        }
+
+                        
+                        @media (min-width: 900px) {
+                            .qiita-style {
+                                max-width: 800px;
+                            }
+                        }
+                        @media (max-width: 899px) {
+                            .qiita-style {
+                                max-width: 700px;
+                            }
+                        }
+                        
+                        @media (max-width: 799px) {
+                            .qiita-style {
+                                max-width: 600px;
+                                width: 500px;
+                            }
+                        }
+
+                        @media (max-width: 599px) {
+                            .qiita-style {
+                                max-width: 500px;
+                                width: 400px;
+                            }
+                        }
+                    </style>
+                    <h1>緊急地震速報を複数対応したはなし</h1>
+                    <p>お久しぶりです。<a href="https://adventar.org/calendars/7488">防災アプリ Advent Calendar 2022</a>に引き続き、<br>
+                        <a href="https://adventar.org/calendars/9301">防災アプリ Advent Calendar 2023の18日</a>にも参加させていただきました。<br>
+                        前日後日には、大物の方々に挟まれておりますが、そんな方々に負けないくらいの記事を書いてみました。</p>
+                    <h2><br>自己紹介</h2>
+                    <p>はじめましての人も多いと思いますので、まずは自己紹介から。<br>「FukuokaMGNTCam」です...これはCamとしての名前ですね。<br>
+                        ニックネームとしては「まっげねっと」です。<br>自分のTwitterでよく自作の「QuapInfo」を投稿しております。<br><br>
+                        さて、今回はいろんなソフト制作に挑戦し、デバッグに持ってこれたソフトや<br>某件の影響もありそのまま埋蔵したソフトも多かったです。<br>
+                        そんないろいろあった今年ですが、今回は内容の濃い記事を書きたかったのですが、今年私は受験生。今回は少し簡素なものとなります。<br>
+                        が、防災アプリ2024年が作られたなら、その時はぜひ期待しておいてください★</p>
+                    <h2><br>今回の題材</h2>
+                    <p>ということで今年は、複数地震の処理方法について書きます。<br>
+                        地震情報関係なので、ggってもなかなか出てこず、半世紀くらい悩みました。<br>
+                        嘘ですね。1週間悩みました。<br>
+                        ということでまずは成果物です。</p>
+                        <img src="/image/2023-1.png" alt="PointMonitor" width="580">
+                        <p>2つ緊急地震速報の予報円ができていますね。青の線はP波、赤・オレンジの内部塗りつぶしの線がS波です。<br>
+                            P波S波は、Pl〇ySta〇ionで覚えました。わりと覚えやすいので是h((<br>
+                            こんな感じに複数地震が発生した場合の緊急地震速報を処理することができるようにしました。<br>
+                            発案から2週間くらいで構想通りになりました。</p>
+                    <h2><br>複数地震とは</h2>
+                    <p>名前と先ほどの画像の通りですが一応説明しますと、<br>地震が二つ以上同時に発生することを言います。<br>
+                        また、<a href="https://www.data.jma.go.jp/eew/data/nc/index.html">緊急地震速報</a>も少しの時間差でも二つ以上発生すれば、複数地震とはいえると思います。<br>
+                        複数地震と調べると<a href="https://ja.wikipedia.org/wiki/%E9%80%A3%E5%8B%95%E5%9E%8B%E5%9C%B0%E9%9C%87">連動型地震</a>と出てきますが、複数地震とは違いますので注意...</p>
+                    <h2><br>構成</h2>
+                    <p>なるべく簡単な図にしてみました ↓</p>
+                    <div class="mermaid">
+                        graph TD;
+                        API-->EventIDが違う;
+                        API-->既存情報とEventIDが同じ;
+                        EventIDが違う-->複数地震としてList追加;
+                        既存情報とEventIDが同じ-->該当情報を更新;
+                        複数地震としてList追加-->すべての緊急地震速報のList;
+                        該当情報を更新-->すべての緊急地震速報のList-->順番に一つずつ緊急地震速報を表示-->一定時間を超えた情報は削除;
+                     </div>
+                     <p>という感じです。</p>
+                     <h2><br>WinFormsで書いてみる</h2>
+                     <p>先ほどのイメージ図にあったEventIDというのは、<br>緊急地震速報が電文として発表される際に含まれる情報で、一つの緊急地震速報に対し固有のEventIDを持ちます。<br>
+                        これを利用し、既存の情報に対し、新しく入った情報のEventIDが一致すれば、既存情報の更新とします。<br>
+                        逆に、既存の情報に対し、新しく入った情報のEventIDが一致しなければ、新しい緊急地震速報として追加します。
+                        <h3><br>緊急地震速報の分別</h3>
+                        <p>まずは土台となるコードです。</p>
+                        <pre><code>List<EarthquakeEvent> eventList = new List<EarthquakeEvent>(); //すべての緊急地震速報を格納するList
+public static EarthquakeEvent viewInfo; //表示する際に使う緊急地震速報データ
+public class EarthquakeEvent
+{
+    public string EventID { get; set; } //EventID
+    public string Title { get; set; } //緊急地震速報の予報か警報か
+    //その他使用したいデータを追加する。
+}
+                            </code></pre>
+                        <p>そして、緊急地震速報のデータを追加する際には</p>
+                        <pre><code>
+EarthquakeEvent existingEvent = eventList.FirstOrDefault(e => e.EventID == eventID);
+//eventList内で、eventIDと一致する既存のEarthquakeEventオブジェクトの検索
+
+EarthquakeEvent newEvent = null;
+if (existingEvent != null)//既存イベントが見つかったら、既存の更新として上書き
+{
+    existingEvent.Title = Json["Title"]["String"].ToString();
+}
+else //見つからないときは、nullを返すので、新規として判定し追加
+{
+    newEvent = new EarthquakeEvent
+    {
+        EventID = eventID,
+        Title = Json["Title"]["String"].ToString()
+    };
+}
+                        </code></pre>
+                        <p>となります。<br>
+                            一応簡単な説明をつけているので、意味は分かりやすくなっていると思います。<br>
+                            ここで複数地震と既存地震の情報の判別をして、追加・更新を行うことは出来ました。</p>
+                            <h3><br>終了判定を付ける</h3>
+                            <p>ですが、追加はできても削除する機能はありません。<br>
+                            これでは永久的に緊急地震速報を追加することになってしまいます。<br>
+                            なので、一定時間ごとに処理ができる場所に以下のコードを置いてみます。</p>
+                        <pre><code>
+if (eventList.Count > 0) //緊急地震速報のデータがある
+{
+    DateTime now = DateTime.Now;
+    eventList.RemoveAll(eventItem =>
+    {
+        DateTime eventTime = DateTime.ParseExact(eventItem.EventID←最終報受信時刻でもよい, "yyyyMMddHHmmss", null);
+        return (now - eventTime).TotalSeconds >= 180;
+    });
+
+    if (eventList.Count > 0)
+    {
+        viewInfo = eventList[0]; //表示する緊急地震速報
+
+        if (eventList.Count > 1) //複数の緊急地震速報の場合
+        {
+             SwichTime.Start();
+        }
+    }
+    else
+    {
+        SwichTime.Stop();
+    }
+}
+else //緊急地震速報がない
+{
+    SwichTime.Stop();
+}
+</code></pre>
+                    <p>「←最終報受信時刻でもよい」については、本番で削除してかまいません。目立たせるためにおいておいてあります。</p>
+                    <h3><br>一定ごとに表示を切り替える</h3>
+                        <p>ここでのSwichTime Timerは、viewInfoで表示する情報の切り替えを行うためのタイマーです。<br>
+                        つまり、3秒ごとに複数の緊急地震速報の表示を切り替えるためのタイマーです。<br><br>
+                        次に、viewInfoで表示する情報を周期的に切り替えるコードです。</p><br>
+                        <pre><code>
+private int currentEventIndex = 0;
+
+private void Swich_Tick(object sender, EventArgs e) //3秒ごとに実行するタイマー
+{
+    try
+    {
+        if (eventList.Count > 0)
+        {
+            int currentIndexDisplay = currentEventIndex + 1;
+            currentEventIndex = (currentEventIndex + 1) % eventList.Count;
+            viewInfo = eventList[currentEventIndex];
+        }
+        else
+        {
+            viewInfo = null;
+        }
+        //表示するメソッドを実行
+        //例えば描画メソッドが「Mapping()」の場合は
+        //Mapping();
+        //を置く。
+    }
+    catch (Exception ex)
+    {
+    }
+}
+                            </code></pre>
+                            <p>eventList(すべての緊急地震速報)の格納している緊急地震速報の数を調べ、<br>
+                                3秒ごとに増やしたりしています。<br>
+                                例えば、3つの緊急地震速報が同時にあった場合、<br>
+                                1つ目→2つ目→3つ目　という感じに順番を変えています。<br><br>
+                                最後に、切り替えられたりしているviewInfoから情報を取り出す方法については、</p>
+                                <pre><code>
+var eventID = viewInfo.EventID;
+var title = viewInfo.Title;     
+                                    </code></pre>
+                                    <p>とするだけで、データが入っている限りはデータを取り出すことができます。<br>データが表示されない場合は、文字を表示するlabelなどで、</p>
+                                    <pre><code>
+label1.Text = eventList.Count.ToString();
+                                        </code></pre>
+                                    <p>で現在eventList内に存在するデータ(EEW)の「数」を調べてみてください。<br>
+                                        (テスト表示の場合、eventIDや最終受信時刻が指定時間を超えたためにデータ消去の可能性があります。)</p>
+                    <p>動作例: 地図も震央緯度経度がわかれば簡単に描画できます。</p>
+                    <img src="/image/2023-2.png" alt="PointMonitor" width="580">
+                    <img src="/image/2023-3.png" alt="PointMonitor" width="580">
+                    <p>取得情報を変えて自動取得しています。同時描画(画像の場合だと、北海道と千葉が地図内にまとめて描画)も考えたのですが、地図の狭さ的にこうするしかありませんでした。</p>
+                    <h2><br>P波S波を描画する</h2>
+                    <h3><br>発生時刻と現在時刻の差</h3>
+                    <p>ここまで無事に行けたら幸いです。おまけとして、P波とS波の描画をやっていきます。<br>
+                    もちろん、複数対応というテーマですので、波も複数描画をしていきます。<br><br>まず、「情報が更新された際に処理する所」で、以下コードを置きます。</p>
+                    <pre><code>
+Task[] tasks = eventList.Select(earthquakeEvent => Task.Run(() => //eventListの各要素について、非同期処理を行うTaskを生成してらのTaskを要素とする配列を作る
+{
+    double counts = 0;　//カウントを一度0に初期化
+    DateTime dt = DateTime.Now;
+    var tm = dt.AddSeconds(-2);
+    var time = tm.ToString("yyyyMMddHHmmss");
+    string endTimestring = time;
+
+    DateTime originTime = DateTime.ParseExact(earthquakeEvent.Origin, "yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture); //"yyyy-MM-dd HH:mm:ss"は、どの形式であるかを取得元を確認してください。このタイプのミスが多いです
+    DateTime endTime = DateTime.ParseExact(endTimestring, "yyyyMMddHHmmss", null);
+    TimeSpan difference = endTime - originTime; //現在時刻から発生時刻の差を求める
+
+    counts = difference.TotalSeconds; //coutnsにその差を入れる
+    TravelTimeTable newEntry = new TravelTimeTable //新しいTraveltimeTableを作り、その中にeventListから取得した情報の設定
+    {
+        Depth = int.Parse(earthquakeEvent.Depth),
+        EventID = earthquakeEvent.EventID
+    };
+
+    lock (lockObject)//マルチスレッド環境の競合を防ぐ
+    {
+        var existingEntry = PSwavein.FirstOrDefault(entry => entry.EventID == earthquakeEvent.EventID); //PSwaveinから同じeventIDを持つ既存のエントリを取得
+
+        if (existingEntry != null) //既存エントリが存在する場合はそれを更新する
+        {
+            existingEntry.Depth = newEntry.Depth;
+            existingEntry.Counts = counts;
+        }
+        else //新規の情報だったら、新しく追加する
+        {
+            newEntry.Counts = counts;
+            PSwavein.Add(newEntry);
+        }
+    }
+})).ToArray(); 
+
+//以下はメソッドの外に置きます
+private object lockObject = new object();
+List<.TravelTimeTable> PSwavein = new List<.TravelTimeTable>(); //<.TravelTimeTable>は、記事を書く際にどうしてもこうしないと書けませんでした
+
+public class TravelTimeTable
+{
+    public double P { get; set; }
+    public double S { get; set; }
+    public int Depth { get; set; }
+    public int Distance { get; set; }
+    public string EventID { get; set; }
+    public double Counts { get; set; }
+}
+</code></pre>
+                    <p>このコードは、P波S波を描画するうえで、地震発生からの時間をDepthやCountsに入れます。<br>深さの存在意義については、震源の深さによって波が大幅に変わるからです。</p>
+                        <iframe width="360" height="205" src="https://www.youtube.com/embed/pkOrYD8wQSY?si=1soA8XvtPH9rkZj0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <iframe width="360" height="205" src="https://www.youtube.com/embed/Vn-h4EdixAk?si=KrP9V2dkeDfCBCHF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    <p>深さが190km違うだけで、このようにP波S波の広がり方が変わります。<a href="https://ja.wikipedia.org/wiki/%E6%B7%B1%E7%99%BA%E5%9C%B0%E9%9C%87">深発地震について</a><br>
+                    さらに、択捉島付近の例では、地震発生から30秒後からを表示しています。<br>P波といっても、地上までに距離があるので、そこまでを動画にしても意味はないでしょう。</p>
+                    <h3><br>P波S波を求める</h3>
+                    <p>続いて、P波S波の直径距離を求めていきます。これは、<a href="https://zenn.dev/boocsan/articles/travel-time-table-converter-adcal2020">走時表をもとに時間と震源の深さからP波とS波の大きさを求めてみよう (ぶっくさん 様)</a>を使用して求めています。</p>
+                    <pre><code>
+private void timer1_Tick(object sender, EventArgs e) //予報円の描画頻度に関わります
+{
+    計算();
+    //おススメ 1秒/s=1000ms, 0.5秒/s=500ms, 0.25秒/s=250ms, 0.125秒/s=125ms, 0.1秒/s=100ms
+}
+
+private void 計算()
+{
+    foreach (var item in PSwavein)//PSwaveinに入れた情報(EEW)の数の分だけ計算します
+    {
+        item.Counts += 0.89 / 10.0;
+        //10.0の変更について timer1でおススメの通りに設定した場合、次のように入力してください
+        //1秒/s=1.0 0.5秒/s=2.0 0.25秒/s=4.0 0.125秒/s=8.0 0.1秒/s=10.0 つまり1000(ms)を秒の1000倍で割った値になります。1000(ms)/1000x(m/s)
+
+        //TravelTimeTableConverter.GetValueについては、「走時表をもとに時間と震源の深さからP波とS波の大きさを求めてみよう (ぶっくさん 様)」を使用しています
+        (double pwave, double swave) = TravelTimeTableConverter.GetValue((item.Depth), item.Counts);
+
+        pwave = Math.Round(pwave, 4); //四捨五入し、小数点第4位に丸める
+        swave = Math.Round(swave, 4);
+        item.P = pwave; //PSwaveinにP波とS波の計算結果を入れる
+        item.S = swave;
+    }
+    try
+    {
+        //P波S波を描画するメソッドを置く 「メソッド名();」
+    }
+    catch { }
+}
+                        </code></pre>
+                        <p>ここまでこれば、P波S波の直径距離を求めることができました。</p>
+                        <h3><br>P波S波を描画する</h3>
+                        <p>最後に、求めた直径距離を使用し、予報円を描画していきます。描画速度は、「メソッド名();」と置いた部分で実行します。</p>
+                        <pre><code>
+private readonly object graphicsLock = new object();
+private void メソッド名()
+{
+    Bitmap canvas = new Bitmap(pictureBox.Width, pictureBox.Height);
+    using (Graphics g = Graphics.FromImage(canvas))
+    {
+        lock (graphicsLock)
+        {
+            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+
+            try
+            {
+                {
+                    //eventListとPSwaveinを合体しそれぞれの要素を2つにマッピングし新しい匿名型のシーケンスを作る
+                    var zippedLists = eventList.Zip(PSwavein, (eventItem, psWaveEntryItem) => new { EventItem = eventItem, PsWaveEntryItem = psWaveEntryItem });
+                    //情報を入れる
+                    foreach (var item in zippedLists)
+                    {
+                        double radius = item.PsWaveEntryItem.S / 2; // 半径 km 
+                        double Pradius = item.PsWaveEntryItem.P / 2; // 半径 km
+
+                        // 緯度経度から画面座標を求める
+                        double px = ((double.Parse(item.EventItem.EpiLon) * 0.79 - QCenterLon) * QZoom) + QXcenter;
+                        double py = ((QCenterLat - double.Parse(item.EventItem.EpiLat)) * QZoom) + (QYcenter);
+
+                        //描画に直径として使う2つの要素を格納
+                        float diameter = (float)(radius * QZoom / 2.4 / 10.0); // 直径（px）
+                        float Pdiameter = (float)(Pradius * QZoom / 2.4 / 10.0); // 直径（px）
+
+                        //描画
+                        Pen pen = new Pen(Color.FromArgb(230, 100, 100), 2);
+                        Pen penfo = new Pen(Color.FromArgb(230, 150, 100), 2);
+                        Pen Ppen = new Pen(Color.FromArgb(100, 150, 230), 2);
+                        {
+                            g.FillEllipse(new SolidBrush(Color.FromArgb(20, 230, 100, 100)), (float)(px - diameter / 2f), (float)(py - diameter / 1.9f), diameter, diameter / 1.0f); // 塗りつぶし
+                            g.DrawEllipse(pen, (float)(px - diameter / 2f), (float)(py - diameter / 1.9f), diameter, diameter / 1.0f); // 線の描画
+                            g.DrawEllipse(Ppen, (float)(px - Pdiameter / 2f), (float)(py - Pdiameter / 1.9f), Pdiameter, Pdiameter / 1.0f); // 線の描画
+                        }
+                    }
+                }
+            }
+            catch { }
+        }
+        //Graphicsオブジェクトの解放
+        g.Dispose();
+    }
+    pictureBox.Image = canvas;
+}
+                        </code></pre>
+
+        <p>記事のミスがない限りは、これでP波S波の描画は出来ました。地図自体の描画については、<br>
+
+            <a href="https://qiita.com/Ichihai1415/items/8447eb43b3e7c9be4e1a">WinFormsでGeojsonを描画しよう</a>を一部改造し使用しました。<br>(緯度経度の始点のみで使用するように改造)</p>
+            <h2><br>自作ソフトを半公開している話</h2>
+            <p>MGNTDiscordサーバーで先ほどのソフトなど、4つのソフトをデバッグしてくれる方を募集しています。</p>
+            <img src="/image/2023-4.png" alt="PointMonitor" width="200">
+            <p>上から紹介すると</p>
+            <table class="table">
+                <tr>
+                 <th>名前</th>
+                 <th>説明</th>
+                 </tr>
+                <tr>
+                 <td>EEWD</td>
+                 <td>緊急地震速報を表示するソフト。先ほどの画像です。</td>
+                </tr>
+                <tr>
+                 <td>EQjtc(開発停止)</td>
+                 <td>台湾の緊急地震速報や国内の地震情報&EEW</td>
+                </tr>
+                <tr>
+                 <td>TsunamiInfoText</td>
+                 <td>津波情報ソフト Twitterに投稿しているアレです。</td>
+                </tr>
+                <tr>
+                 <td>実験体</td>
+                 <td>Dmdataの取得テストの実験</td>
+                </tr>
+                <tr>
+                 <td>WeatherQuakeTelop</td>
+                 <td>天気や地震情報をテロップ表示するソフト</td>
+                </tr>
+               </table>
+            <p>をデバッグしてもらっています。<br>
+                ですが、中々デバッグしてくれる方もおらず、現在は<a href="https://twitter.com/SaitamaSoraCam">SaitamaSoraCam</a>さんにすべてデバッグしてもらっています。感謝感謝...<br><br>
+                サーバーについては、ヘッダー隣の<a href="./Network.html">Network</a>より入れますし、直接<a href="https://discord.gg/tbsn4KmgSY">ここ</a>から入れます。<br>
+                いろんな方にデバッグしてほしいので、ぜひ入ってください。(懇願)</p>
+            <h2><br>おわりに</h2>
+            <p><a href="https://qiita.com/FukuokkaMGNTnr/items/371d3859034a5a5dd99a#%E4%BD%99%E8%AB%87">1年前</a>に地図描画をすると言っていましたが、その2か月足らずで目標を達成しました。<br>
+                その11か月後には、こんなソフトを作ったなんて信じられないだろうなって思っています。<br><br>
+                さて、今回はなるべくわかりやすく書いてみたつもりです。少しでも地震アプリ開発に役立ててもらえればと思います。<br></p>
+
+<div class="sns-tag-cloud-under">
+    <p><span style="font-size: 150%; color: #2196f3;">＼ この記事をシェアする! ／</span></p>
+    <a href="https://www.facebook.com/sharer.php?u=https://maggenetto.github.io/FukuokaMGNTCam/2023Advent.html" target="_blank" class="sns-tag-cloud-facebook" onclick="window.open(this.href, 'FBwindow', 'width=650, height=450, menubar=no, toolbar=no, scrollbars=yes'); return false;"> 
+    <em class="blogicon-facebook lg"> </em> シェア </a> 
+    <a href="https://twitter.com/intent/tweet?text=緊急地震速報を複数対応したはなし https://maggenetto.github.io/FukuokaMGNTCam/2023Advent.html" target="_blank" class="sns-tag-cloud-twitter"> 
+    <em class="blogicon-twitter lg"> </em> ツイート </a> 
+    <a href="https://getpocket.com/edit?url=https://maggenetto.github.io/FukuokaMGNTCam/2023Advent.html" target="_blank" class="sns-tag-cloud-pocket"> 
+    <em class="blogicon-chevron-down lg"> </em> ポケット </a> 
+    <a href="https://line.me/R/msg/text/?緊急地震速報を複数対応したはなし https://maggenetto.github.io/FukuokaMGNTCam/2023Advent.html" target="_blank" class="sns-tag-cloud-line"> 
+    <em class="blogicon-comment lg"> </em> LINE </a>
+    <a href="mailto:?subject=件名&amp;body=緊急地震速報を複数対応したはなし https://maggenetto.github.io/FukuokaMGNTCam/2023Advent.html" target="_blank" class="sns-tag-cloud-hatenab"> 
+    <em class="blogicon-comment lg"> </em> メール </a>
+    </div>
+
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+    </body>
+    </html>
